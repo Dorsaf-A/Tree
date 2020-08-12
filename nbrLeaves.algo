@@ -1,0 +1,10 @@
+FUNCTION nb_leaves(root : ^BT) : INTEGER
+BEGIN
+    IF (root = NULL) THEN
+        RETURN 0;
+    ELSE_IF(root^.LC = NULL AND root^.RC = NULL)
+        RETURN 1;
+    ELSE
+        RETURN  nb_leaves(root^.LC) + nb_leaves(root^.RC);
+    END_IF
+END

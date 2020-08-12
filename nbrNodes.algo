@@ -1,0 +1,8 @@
+FUNCTION nb_nodes(root : ^BT) : INTEGER
+BEGIN
+    IF (root = NULL) THEN
+        RETURN 0;
+    ELSE
+        RETURN 1 + nb_nodes(root^.LC) + nb_nodes(root^.RC);
+    END_IF
+END

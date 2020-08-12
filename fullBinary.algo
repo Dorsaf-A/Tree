@@ -1,0 +1,12 @@
+FUNCTION full_BT(root : ^BT) : BOOLEAN
+BEGIN
+    IF (root <> NULL) THEN
+        IF (root^.LC = NULL AND root^.RC = NULL) THEN
+            RETURN TRUE;
+        ELSE_IF (root^.LC <> NULL AND root^.RC <> NULL) THEN
+            RETURN full_BT(root^.LC) AND full_BT(root^.RC);
+        ELSE
+            RETURN FALSE;
+        END_IF
+    END_IF
+END

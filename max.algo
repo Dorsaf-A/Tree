@@ -1,0 +1,23 @@
+FUNCTION max(a,b : INTEGER) : INTEGER
+BEGIN
+    IF (a < b) THEN
+        RETURN b;
+    ELSE
+        RETURN a;
+    END_IF
+END
+
+FUNCTION maximum(root : ^BT) : INTEGER
+BEGIN
+    IF (root <> NULL) THEN
+        IF (root^.LC = NULL AND root^.RC = NULL) THEN
+            RETURN root^.VAL;
+        ELSE_IF (root^.LC = NULL) THEN
+            RETURN max(root^.VAL,maximum(root^.RC));
+        ELSE_IF (root^.RC = NULL) THEN
+            RETURN max(root^.VAL,maximum(root^.LC));
+        ELSE
+            RETURN max(maximum(root^.LC),maximum(root^.RC));
+        END_IF
+    END_IF
+END
